@@ -1,0 +1,19 @@
+# Mac
+.DS_Store
+
+# Eclipse
+.classpath
+.project
+.settings/
+
+# IDEA
+*.iml
+.idea/
+
+# Others
+target/
+logs/
+/bin/
+/target
+out/
+/out
