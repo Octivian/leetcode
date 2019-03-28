@@ -18,6 +18,7 @@ public class LongestPalindromicSubstring {
 
                 }
             }
+            return "";
         }
     }
 }
