@@ -1,4 +1,4 @@
-package binarySearch;
+package binarySearch.template1;
 
 public class GuessNumber {
     public static class Solution {

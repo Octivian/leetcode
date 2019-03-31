@@ -1,4 +1,4 @@
-package binarySearch;
+package binarySearch.template1;
 
 public class Sqrtx {
     class Solution {
