@@ -1,3 +1,5 @@
+package binarySearch;
+
 public class MedianOfTwoSortedArrays {
 
     /**
