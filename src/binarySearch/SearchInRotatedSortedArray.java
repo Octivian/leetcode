@@ -1,4 +1,4 @@
-package binarySearch.template1;
+package binarySearch;
 
 public class SearchInRotatedSortedArray {
     static class Solution {
@@ -40,6 +40,40 @@ public class SearchInRotatedSortedArray {
                 }
             }
             return -1;
+        }
+    }
+
+    /**
+     * C++ STL algorithm lower_bound
+     */
+    class Solution1 {
+        public int search(int[] nums, int target) {
+            if (nums == null || nums.length == 0) {
+                return -1;
+            }
+            int left = 0;
+            int right = nums.length - 1;
+            while (left < right) {
+                int mid = (left + right) >>> 1;
+                if (nums[mid] < target) {
+                    if (nums[mid] < nums[0] && target > nums[nums.length - 1]) { //nums[mid]和target分跨两边
+                        right = mid;
+                    } else { //正常情况
+                        left = mid + 1;
+                    }
+                } else {
+                    if (nums[mid] == target) {
+                        return mid;
+                    } else {
+                        if (target < nums[0] && nums[mid] > nums[nums.length - 1]) { //nums[mid]和target分跨两边
+                            left = mid + 1;
+                        } else { //正常情况
+                            right = mid;
+                        }
+                    }
+                }
+            }
+            return nums[left] == target ? left : -1;
         }
     }
 

@@ -19,4 +19,31 @@ public class BinarySearch {
             return -1;
         }
     }
+
+    /**
+     * C++ STL algorithm lower_bound
+     */
+    class Solution1 {
+        public int search(int[] nums, int target) {
+            int left = 0;
+            int right = nums.length - 1;
+            while (left < right) {
+                int mid = (right + left) >>> 1;
+                if (nums[mid] < target) {
+                    left = mid + 1;
+                } else {
+                    if (nums[mid] == target) {
+                        return mid;
+                    }
+                    right = mid;
+                }
+            }
+            //因为是lowerbound，所以判断值是否相等
+            return nums[left] == target ? left : -1;
+        }
+    }
+
+    public static void main(String[] args) {
+        System.out.println(Integer.MAX_VALUE);
+    }
 }

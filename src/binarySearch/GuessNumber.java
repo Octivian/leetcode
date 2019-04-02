@@ -1,4 +1,4 @@
-package binarySearch.template1;
+package binarySearch;
 
 public class GuessNumber {
     public static class Solution {
@@ -17,6 +17,28 @@ public class GuessNumber {
                 }
             }
             return -1;
+        }
+    }
+
+    /**
+     * C++ STL algorithm lower_bound
+     */
+    public static class Solution1 {
+        public static int guessNumber(int n) {
+            int left = 1;
+            int right = n;
+            while (left < right) {
+                int mid = (right + left) >>> 1;
+                if (guess(mid, 6) == 1) {
+                    left = mid + 1;
+                } else {
+                    if (guess(mid, 6) == 0) {
+                        return mid;
+                    }
+                    right = mid;
+                }
+            }
+            return left;
         }
     }
 
