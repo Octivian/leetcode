@@ -26,7 +26,7 @@ public class BinarySearch {
     class Solution1 {
         public int search(int[] nums, int target) {
             int left = 0;
-            int right = nums.length - 1;
+            int right = nums.length;
             while (left < right) {
                 int mid = (right + left) >>> 1;
                 if (nums[mid] < target) {
@@ -38,8 +38,7 @@ public class BinarySearch {
                     right = mid;
                 }
             }
-            //因为是lowerbound，所以判断值是否相等
-            return nums[left] == target ? left : -1;
+            return -1;
         }
     }
 

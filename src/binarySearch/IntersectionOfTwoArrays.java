@@ -48,6 +48,7 @@ public class IntersectionOfTwoArrays {
             }
             Set<Integer> tmp = new HashSet<>();
 
+            //if nums2 is sorted，can do binary search，it's O(logn)
             for (int i = 0; i < nums2.length; i++) {
                 if (set1.contains(nums2[i])) {
                     tmp.add(nums2[i]);
