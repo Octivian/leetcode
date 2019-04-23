@@ -1,5 +1,7 @@
 package queue;
 
+import java.util.Stack;
+
 class MyCircularQueue {
 
     private final int[] queue;
@@ -8,7 +10,6 @@ class MyCircularQueue {
     private int tail = -1;
 
     private int num = 0;
-
 
     /**
      * Initialize your data structure here. Set the size of the queue to be k.
@@ -77,17 +78,118 @@ class MyCircularQueue {
     public boolean isFull() {
         return num == queue.length;
     }
-
 }
 
+/**
+ * push O(n) pop O(1)
+ */
+class MyQueueUsingStack {
+    /**
+     * Initialize your data structure here.
+     */
+    Stack<Integer> s1;
+
+    Stack<Integer> s2;
+
+    public MyQueueUsingStack() {
+        s1 = new Stack<>();
+        s2 = new Stack<>();
+    }
+
+    /**
+     * Push element x to the back of queue.
+     */
+    public void push(int x) {
+        while (!s1.isEmpty()) {
+            s2.push(s1.pop());
+        }
+        s1.push(x);
+        while (!s2.isEmpty()) {
+            s1.push(s2.pop());
+        }
+    }
+
+    /**
+     * Removes the element from in front of queue and returns that element.
+     */
+    public int pop() {
+
+        return s1.isEmpty() ? 0 : s1.pop();
+    }
+
+    /**
+     * Get the front element.
+     */
+    public int peek() {
+
+        return s1.isEmpty() ? 0 : s1.peek();
+    }
+
+    /**
+     * Returns whether the queue is empty.
+     */
+    public boolean empty() {
+        return s1.isEmpty();
+    }
+}
 
 /**
- * Your MyCircularQueue object will be instantiated and called as such:
- * MyCircularQueue obj = new MyCircularQueue(k);
- * boolean param_1 = obj.enQueue(value);
- * boolean param_2 = obj.deQueue();
- * int param_3 = obj.Front();
- * int param_4 = obj.Rear();
- * boolean param_5 = obj.isEmpty();
- * boolean param_6 = obj.isFull();
+ * push O(1) pop O(1)
+ */
+class MyQueueUsingStack1 {
+
+    /**
+     * Initialize your data structure here.
+     */
+    Stack<Integer> s1;
+
+    Stack<Integer> s2;
+
+    public MyQueueUsingStack1() {
+        s1 = new Stack<>();
+        s2 = new Stack<>();
+    }
+
+    /**
+     * Push element x to the back of queue.
+     */
+    public void push(int x) {
+        s1.push(x);
+    }
+
+    /**
+     * Removes the element from in front of queue and returns that element.
+     */
+    public int pop() {
+        if (s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
+        }
+        return s2.pop();
+    }
+
+    /**
+     * Get the front element.
+     */
+    public int peek() {
+        if (s2.isEmpty()) {
+            while (!s1.isEmpty()) {
+                s2.push(s1.pop());
+            }
+        }
+        return s2.peek();
+    }
+
+    /**
+     * Returns whether the queue is empty.
+     */
+    public boolean empty() {
+        return s1.isEmpty() && s2.empty();
+    }
+}
+
+/**
+ * Your MyQueue object will be instantiated and called as such: MyQueue obj = new MyQueue(); obj.push(x); int param_2 =
+ * obj.pop(); int param_3 = obj.peek(); boolean param_4 = obj.empty();
  */
