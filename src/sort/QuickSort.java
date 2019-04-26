@@ -9,7 +9,7 @@ public class QuickSort {
     }
 
     static int[] quickSort(int[] arr, int left, int right) {
-        if (left <= right) {
+        if (left < right) {
             int pivot = partition(arr, left, right);
             quickSort(arr, left, pivot - 1);
             quickSort(arr, pivot + 1, right);
