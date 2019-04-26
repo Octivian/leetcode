@@ -44,6 +44,40 @@ public class DecodeString {
         }
     }
 
+    /**
+     * most efficient solution, more easy to understand
+     */
+    class Solution1 {
+        public String decodeString(String s) {
+            Stack<String> s1 = new Stack<>();
+            Stack<Integer> s2 = new Stack<>();
+
+            int count = 0;
+            String str = "";
+            for (int i = 0; i < s.length(); i++) {
+                if (Character.isDigit(s.charAt(i))) {
+                    count = count * 10 + (s.charAt(i) - '0');
+                } else if (s.charAt(i) == '[') {
+                    s2.push(count);
+                    count = 0;
+                    s1.push(str);
+                    str = "";
+                } else if (s.charAt(i) == ']') {
+                    StringBuilder sb = new StringBuilder(s1.pop());
+                    Integer pop = s2.pop();
+                    for (int j = 0; j < pop; j++) {
+                        sb.append(str);
+                    }
+                    str = sb.toString();
+
+                } else {
+                    str += s.charAt(i) + "";
+                }
+            }
+            return str;
+        }
+    }
+
     public static void main(String[] args) {
         System.out.println("");
     }
