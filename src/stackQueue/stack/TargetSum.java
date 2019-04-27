@@ -1,4 +1,4 @@
-package stack;
+package stackQueue.stack;
 
 public class TargetSum {
     class Solution {

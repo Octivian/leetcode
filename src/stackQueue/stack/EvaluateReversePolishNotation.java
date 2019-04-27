@@ -1,4 +1,4 @@
-package stack;
+package stackQueue.stack;
 
 import java.util.HashMap;
 import java.util.Map;

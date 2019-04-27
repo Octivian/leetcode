@@ -1,4 +1,4 @@
-package stack;
+package stackQueue.stack;
 
 import java.util.Stack;
 
@@ -26,7 +26,7 @@ public class DailyTemperatures {
     }
 
     /**
-     * stupid , just push index into stack
+     * stupid , just push index into stackQueue.stack
      */
     class Entry {
         int index;
@@ -39,7 +39,7 @@ public class DailyTemperatures {
     }
 
     /**
-     * no Entry, push index into stack
+     * no Entry, push index into stackQueue.stack
      */
     class Solution2 {
         public int[] dailyTemperatures(int[] T) {
@@ -64,7 +64,7 @@ public class DailyTemperatures {
     }
 
     /**
-     * reverse into stack,hold biggest element in stack , pop smaller
+     * reverse into stackQueue.stack,hold biggest element in stackQueue.stack , pop smaller
      */
     class Solution3 {
         public int[] dailyTemperatures(int[] T) {

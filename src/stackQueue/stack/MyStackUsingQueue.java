@@ -1,4 +1,4 @@
-package stack;
+package stackQueue.stack;
 
 import java.util.LinkedList;
 import java.util.Queue;
@@ -19,14 +19,14 @@ public class MyStackUsingQueue {
         }
 
         /**
-         * Push element x onto stack.
+         * Push element x onto stackQueue.stack.
          */
         public void push(int x) {
             q.offer(x);
         }
 
         /**
-         * Removes the element on top of the stack and returns that element.
+         * Removes the element on top of the stackQueue.stack and returns that element.
          */
         public int pop() {
             for (int i = 0; i < q.size() - 1; i++) {
@@ -48,7 +48,7 @@ public class MyStackUsingQueue {
         }
 
         /**
-         * Returns whether the stack is empty.
+         * Returns whether the stackQueue.stack is empty.
          */
         public boolean empty() {
             return q.isEmpty();
@@ -70,7 +70,7 @@ public class MyStackUsingQueue {
         }
 
         /**
-         * Push element x onto stack.
+         * Push element x onto stackQueue.stack.
          */
         public void push(int x) {
             q.offer(x);
@@ -80,7 +80,7 @@ public class MyStackUsingQueue {
         }
 
         /**
-         * Removes the element on top of the stack and returns that element.
+         * Removes the element on top of the stackQueue.stack and returns that element.
          */
         public int pop() {
             return q.poll();
@@ -94,7 +94,7 @@ public class MyStackUsingQueue {
         }
 
         /**
-         * Returns whether the stack is empty.
+         * Returns whether the stackQueue.stack is empty.
          */
         public boolean empty() {
             return q.isEmpty();
