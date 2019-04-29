@@ -98,4 +98,54 @@ public class MedianOfTwoSortedArrays {
             return (m + n) % 2 == 0 ? (minRight + maxLeft) / 2d : minRight;
         }
     }
+
+    class Solution {
+        public double findMedianSortedArrays(int[] nums1, int[] nums2) {
+
+            int m = nums1.length;
+            int n = nums2.length;
+
+            if (m > n) {
+                int tmp = m;
+                m = n;
+                n = tmp;
+
+                int[] tmpNums = nums1;
+                nums1 = nums2;
+                nums2 = tmpNums;
+            }
+
+            if (m == 0) {
+                return n % 2 == 1 ? nums2[(n >>> 1)] : (nums2[(n >>> 1) - 1] + nums2[n >>> 1]) / 2d;
+            }
+
+            int left = 0;
+
+            int right = nums1.length;
+
+            while (left < right) {
+                int mid1 = (left + right) >>> 1;
+                int mid2 = ((m + n) >>> 1) - mid1;
+
+                int leftMax =
+                    mid1 == 0
+                        ? nums2[n - 1]
+                        : mid1 == m - 1 ? nums1[m - 1] : Math.max(nums1[mid1 - 1], nums2[mid2 - 1]);
+
+                int rightMin = Math.min(nums1[mid1], nums2[mid2]);
+
+                if (leftMax <= rightMin) {
+                    return (m + n) % 2 == 0 ? (leftMax + rightMin) / 2d : rightMin;
+                } else {
+                    if (nums1[mid1 - 1] > nums2[mid2]) {
+                        right = mid1 - 1;
+                    } else if (nums2[mid2 - 1] > nums1[mid1]) {
+                        left = mid1 + 1;
+                    }
+                }
+            }
+
+            return -1;
+        }
+    }
 }
