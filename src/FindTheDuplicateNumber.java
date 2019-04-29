@@ -35,7 +35,7 @@ public class FindTheDuplicateNumber {
     }
 
     /**
-     * 龟兔赛跑
+     * 龟兔赛跑，判断链表有环
      */
     class Solution2 {
         public int findDuplicate(int[] nums) {
@@ -43,8 +43,8 @@ public class FindTheDuplicateNumber {
             int r = nums[0];
 
             do {
-                t = nums[t];
-                r = nums[nums[r]];
+                t = nums[t]; //龟一次走一步
+                r = nums[nums[r]]; //兔一次走两步
             } while (t != r);
 
             //TODO
