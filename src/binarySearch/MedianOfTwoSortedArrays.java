@@ -123,29 +123,37 @@ public class MedianOfTwoSortedArrays {
 
             int right = nums1.length;
 
-            while (left < right) {
+            int leftMax = 0;
+
+            int rightMin = 0;
+
+            while (left <= right) {
                 int mid1 = (left + right) >>> 1;
                 int mid2 = ((m + n) >>> 1) - mid1;
 
-                int leftMax =
-                    mid1 == 0
-                        ? nums2[n - 1]
-                        : mid1 == m - 1 ? nums1[m - 1] : Math.max(nums1[mid1 - 1], nums2[mid2 - 1]);
-
-                int rightMin = Math.min(nums1[mid1], nums2[mid2]);
-
-                if (leftMax <= rightMin) {
-                    return (m + n) % 2 == 0 ? (leftMax + rightMin) / 2d : rightMin;
-                } else {
-                    if (nums1[mid1 - 1] > nums2[mid2]) {
-                        right = mid1 - 1;
-                    } else if (nums2[mid2 - 1] > nums1[mid1]) {
-                        left = mid1 + 1;
+                if (mid1 > 0 && nums1[mid1 - 1] > nums2[mid2]) { //mid左移
+                    right = mid1 - 1;
+                } else if (mid1 < m && nums2[mid2 - 1] > nums1[mid1]) { //mid右移
+                    left = mid1 + 1;
+                } else { //  leftMax<=rightMin
+                    if (mid1 == 0) {
+                        leftMax = nums2[mid2 - 1];
+                        //两种情况，1：nums1,nums2平分，也就是元素数目相等，nums2，完全在左，rigntMin就为nums1[0] ,2：nums2右端和nums1有重合，比较取最小
+                        rightMin = mid2 == n ? nums1[0] : Math.min(nums1[mid1], nums2[mid2]);
+                    } else if (mid1 == m) {
+                        //两张情况，同上
+                        leftMax = mid2 == 0 ? nums1[mid1 - 1] : Math.max(nums1[mid1 - 1], nums2[mid2 - 1]);
+                        rightMin = nums2[mid2];
+                    } else {
+                        leftMax = Math.max(nums1[mid1 - 1], nums2[mid2 - 1]);
+                        rightMin = Math.min(nums1[mid1], nums2[mid2]);
                     }
+
+                    break;
                 }
             }
 
-            return -1;
+            return (m + n) % 2 == 0 ? (leftMax + rightMin) / 2d : rightMin;
         }
     }
 }
