@@ -12,9 +12,11 @@ public class SplitArrayLargestSum {
             for (int i = m - 1; i < nums.length; i++) {
                 max += nums[i];
             }
-            System.out.println(min + ":" + max);
+
+            //  lower bound definitely equals the largest sum of m subarrays
             while (min < max) {
                 int mid = (min + max) >>> 1;
+                System.out.println(min + ":" + mid + ":" + max);
                 if (valid(nums, mid, m)) {
                     max = mid;
                 } else {
