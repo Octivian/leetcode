@@ -1,4 +1,4 @@
-package arrayAndString.medium;
+package array.medium;
 
 public class DiagonalTraverse {
     class Solution {
@@ -27,7 +27,6 @@ public class DiagonalTraverse {
 
                 x = up ? Math.min(i, m - 1) : (code - i < n) ? 0 : i + 2;
                 up = up ? false : true;
-
             }
 
             return ints;
