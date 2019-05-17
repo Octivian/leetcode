@@ -1,4 +1,4 @@
-package array.easy;
+package arrayAndString.array.easy;
 
 public class LargestNumberAtLeastTwiceOfOthers {
     class Solution {

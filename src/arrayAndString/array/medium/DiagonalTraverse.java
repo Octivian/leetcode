@@ -1,4 +1,4 @@
-package array.medium;
+package arrayAndString.array.medium;
 
 public class DiagonalTraverse {
     class Solution {

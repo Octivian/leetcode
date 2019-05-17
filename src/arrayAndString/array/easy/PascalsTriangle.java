@@ -1,4 +1,4 @@
-package array.easy;
+package arrayAndString.array.easy;
 
 import java.util.ArrayList;
 import java.util.List;

@@ -1,4 +1,4 @@
-package string.easy;
+package arrayAndString.string.easy;
 
 public class AddBinary {
     class Solution {

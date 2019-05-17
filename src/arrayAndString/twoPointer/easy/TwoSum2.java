@@ -1,3 +1,5 @@
+package arrayAndString.twoPointer.easy;
+
 public class TwoSum2 {
     class Solution {
         public int[] twoSum(int[] numbers, int target) {

@@ -1,4 +1,4 @@
-package array.easy;
+package arrayAndString.array.easy;
 
 public class PlusOne {
     class Solution {
